@@ -38,7 +38,7 @@ def registerME():
     selenium_grid_url = "http://192.168.0.117:" + portnumber + "/wd/hub"
 
     driver = webdriver.Remote(command_executor=selenium_grid_url, desired_capabilities=DesiredCapabilities.CHROME.copy())
-    selenium_grid_url.join()
+    #driver.click(selenium_grid_url)
 
 
     # driver = webdriver.Chrome(resource_path('C:/Users/hanis/PycharmProjects/pythonProject/driver/chromedriver.exe'))
