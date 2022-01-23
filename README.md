@@ -1,8 +1,4 @@
 # KregisterBot
-This is a python program that Kalamazoo College students can use to automate registering for courses.
-
-This program will allow for users to not have to manually register for classes but instead use this program to automate the process.
-
 Note: The program runs on Chrome browser only
 
 > To start, click the 'Code' button, select 'Download ZIP' , and chose your downloads folder as the download path
