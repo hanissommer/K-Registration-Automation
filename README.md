@@ -13,12 +13,12 @@ Note: The program runs on Chrome browser only
 
 > A terminal should open as well as a Chrome browser window with HornetHQ. 
 
-> In the terminal, you will be prompted to Copy path for chrome driver. It should be something like: "C:\Users\*your_name*\KregisterBot-master\KregisterBot-master"
+> In the terminal, you will be prompt for a few info, hit enter after typing in each.
 
-> In the terminal, you will be prompted to enter your K ID and password. Hit enter after typing in each.
+> You will also be prompted to Copy path for chrome driver. The path should be something like: "C:\Users\*your_name*\KregisterBot-master\KregisterBot-master"
 
-> The program should now log you in and navigate to the page on which you register.
+> The program should is set to log you in and navigate to the page on which you register 3 minutes before your registration time.
 
-> Here, it will attempt to click the 'Register Now' button and if it is not available to be clicked, it will refresh the page and try again.
+> Hereafter, it will attempt to click the 'Register Now' button and if it is not available to be clicked, it will refresh the page and try again.
 
 > The program will do this continually until that button is clickable and is clicked, meaning that you've successfully registered.
