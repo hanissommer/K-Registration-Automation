@@ -3,11 +3,22 @@ This is a python program that asks the user for their K credentials and logs int
 
 This program will allow for users to not have to manually register for classes but instead use this program to automate the process.
 
-Note: The program runs on Chromw browser only
+Note: The program runs on Chrome browser only
 
-To start, download the files and click on the 'main.exe' file, which is a shortcut to the executable for the program.
-The command line/terminal should open as well as your Chrome browser with the Hornet HQ login page loaded up.
-In the terminal, you will be prompted to type in your K ID, after which you will hit the enter key. You will then be prompted for your K password as well.
-After inputing your credentials in the terminal, the program should log in and navigate to the Plan and Schedule page.
-Here, it will attempt to click the 'Register Now' button and if it is not available to be clicked, it will refresh the page and try again.
-The program will do this continually until that button is clickable and is clicked, meaning that you've successfully registered.
+> To start, click the 'Code' button, select 'Download ZIP' , and chose your downloads folder as the download path
+
+> Unzip the folder and paste the unzipped folder in the same 'Downloads' folder
+
+> Navigate: >registerBot-master>dist>main>main.exe
+
+> A terminal should open as well as a Chrome browser window with HornetHQ. 
+
+> In the terminal, you will be prompted to Copy path for chrome driver. It should be something like: "C:\Users\*your_name*\registerBot-master\registerBot-master"
+
+> In the terminal, you will be prompted to enter your K ID and password. Hit enter after typing in each.
+
+> The program should now log you in and navigate to the page on which you register.
+
+> Here, it will attempt to click the 'Register Now' button and if it is not available to be clicked, it will refresh the page and try again.
+
+> The program will do this continually until that button is clickable and is clicked, meaning that you've successfully registered.
