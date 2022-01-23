@@ -6,7 +6,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from tkinter import *
 from datetime import datetime, timedelta
+import os
 
+cwd = os.getcwd()
 # This is a script to register for classes
 
 usernameinput = ''
@@ -26,7 +28,7 @@ def timerForRegistration():
     passwordinput = input("Please enter your password: ")
 
     print()
-    path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
+    path = cwd + "\chromedriver.exe"
 
 
     x = datetime.today()
@@ -97,7 +99,6 @@ def registerME():
             nextTerm.click()
             time.sleep(3)
 
-
 if __name__ == '__main__':
     decider = input("Do you want to schedule for later?(y/n) ")
     if (decider == 'y'):
@@ -105,5 +106,5 @@ if __name__ == '__main__':
     else:
         usernameinput = input("Please type in your K ID: ")
         passwordinput = input("Please type in your password: ")
-        path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
+        path = cwd + "\chromedriver.exe"
         registerME()
