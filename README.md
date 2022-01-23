@@ -3,6 +3,8 @@ This is a python program that asks the user for their K credentials and logs int
 
 This program will allow for users to not have to manually register for classes but instead use this program to automate the process.
 
+Note: The program runs on Chromw browser only
+
 To start, download the files and click on the 'Register' file, which is a shortcut to the executable for the program.
 The command line/terminal should open as well as your Chrome browser with the Hornet HQ login page loaded up.
 In the terminal, you will be prompted to type in your K ID, after which you will hit the enter key. You will then be prompted for your K password as well.
