@@ -119,4 +119,11 @@ def registerME():
 
 
 if __name__ == '__main__':
-    timerForRegistration()
+    decider = input("Do you want to schedule to run later?(y/n) ")
+    if (decider == 'y'):
+        timerForRegistration()
+    else:
+        usernameinput = input("Please type in your K ID: ")
+        passwordinput = input("Please type in your password: ")
+        path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
+        registerME()
