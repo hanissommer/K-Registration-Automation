@@ -8,9 +8,9 @@ from tkinter import *
 from datetime import datetime, timedelta
 import os
 
-cwd = os.getcwd()
-end = "pythonProject"
-pathfind = (cwd[0:cwd.index(end)+len(end)])
+# cwd = os.getcwd()
+# end = "pythonProject"
+# pathfind = (cwd[0:cwd.index(end)+len(end)])
 # This is a script to register for classes
 
 usernameinput = ''
@@ -30,7 +30,7 @@ def timerForRegistration():
     passwordinput = input("Please enter your password: ")
 
     print()
-    path = pathfind + "\chromedriver.exe"
+    path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
 
 
     x = datetime.today()
@@ -102,12 +102,12 @@ def registerME():
             time.sleep(3)
 
 if __name__ == '__main__':
-    print(pathfind)
+    #print(pathfind)
     decider = input("Do you want to schedule for later?(y/n) ")
     if (decider == 'y'):
         timerForRegistration()
     else:
         usernameinput = input("Please type in your K ID: ")
         passwordinput = input("Please type in your password: ")
-        path = pathfind + "\chromedriver.exe"
+        path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
         registerME()
