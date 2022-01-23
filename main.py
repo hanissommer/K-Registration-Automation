@@ -1,3 +1,5 @@
+import os
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -9,9 +11,19 @@ from tkinter import *
 # Press the green button in the gutter to run the script.
 # This is a script to register for classes
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.dirname(__file__)
+    return os.path.join(base_path, relative_path)
+
 def registerME():
-    PATH = "C:/Program Files (x86)/chromedriver.exe"
-    driver = webdriver.Chrome(PATH)
+    # PATH = "C:/Program Files (x86)/chromedriver.exe"
+    # driver = webdriver.Chrome(PATH)
+
+    driver = webdriver.Chrome(resource_path('C:/Users/hanis/PycharmProjects/pythonProject/driver/chromedriver.exe'))
+
     driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
     # print(driver.title)
     #time.sleep(5)

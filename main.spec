@@ -4,9 +4,9 @@
 block_cipher = None
 
 
-a = Analysis(['main.py'],
+a = Analysis(['C:\\Users\\hanis\\PycharmProjects\\pythonProject\\main.py'],
              pathex=[],
-             binaries=[],
+             binaries=[('C:\\Users\\hanis\\PycharmProjects\\pythonProject\\driver\\chromedriver.exe', '.\\driver')],
              datas=[],
              hiddenimports=[],
              hookspath=[],
@@ -33,7 +33,7 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=True,
+          console=False,
           disable_windowed_traceback=False,
           target_arch=None,
           codesign_identity=None,
