@@ -8,6 +8,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from tkinter import *
 
+#from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+
+
 # Press the green button in the gutter to run the script.
 # This is a script to register for classes
 
@@ -22,16 +27,28 @@ def registerME():
     # PATH = "C:/Program Files (x86)/chromedriver.exe"
     # driver = webdriver.Chrome(PATH)
 
-    driver = webdriver.Chrome(resource_path('C:/Users/hanis/PycharmProjects/pythonProject/driver/chromedriver.exe'))
+    # driver = webdriver.Remote(
+    #     command_executor='http://192.168.0.117:5556/wd/hub',
+    #     desired_capabilities={'browserName': 'chrome',
+    #                           'version': '2',
+    #                           'javascriptEnabled': True})
+    selenium_grid_url = "http://192.168.0.117:5556"
+
+    driver = webdriver.Remote(command_executor='http://192.168.0.117:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME.copy())
+
+
+    # driver = webdriver.Chrome(resource_path('C:/Users/hanis/PycharmProjects/pythonProject/driver/chromedriver.exe'))
 
     driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
     # print(driver.title)
     #time.sleep(5)
-    print("Hello, please type in your K ID")
-    usernameinput = input()
+    #print("Hello, please type in your K ID")
+    #usernameinput = input()
+    usernameinput = "k19hs02"
 
-    print("Please type in your password")
-    passwordinput = input()
+    #print("Please type in your password")
+    #passwordinput = input()
+    passwordinput = "Twenty20Tw0p@$$"
 
     username = driver.find_element_by_id("UserName")
     username.send_keys(usernameinput)
@@ -63,7 +80,7 @@ def registerME():
         # time.sleep(3)
 
     except:
-        driver.quit()
+        driver.close()
 
     # Registering
     registered = False
@@ -74,7 +91,7 @@ def registerME():
             )
             register.click()
             registered = True
-            driver.quit()
+            driver.close()
         except:
             driver.refresh()
             # To be removed for actual register code [to 73]
