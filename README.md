@@ -10,6 +10,7 @@ Note: The program runs on Chrome browser only
 > Unzip the folder and paste the unzipped folder in the same 'Downloads' folder
 
 > Navigate: >KregisterBot-master>dist>main>main.exe
+> You will need to agree to run this program anyway or bypass your computer's virus defense as this will not be a program from a recognized publisher
 
 > A terminal should open as well as a Chrome browser window with HornetHQ. 
 
