@@ -1,5 +1,3 @@
-import os
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -7,26 +5,64 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from tkinter import *
+from datetime import datetime, timedelta
 
 # Press the green button in the gutter to run the script.
 # This is a script to register for classes
 
-def registerME():
-    PATH = "C:/Program Files (x86)/chromedriver.exe"
+usernameinput = ''
+passwordinput = ''
+path = ''
 
-    print("Copy path for chrome driver")
-    path = input() + "\chromedriver.exe"
-    driver = webdriver.Chrome(path)
+def timerForRegistration():
+    print("Enter year of registration")
+    myear: int = input()
+    print("Enter month of registration, in numbers")
+    mmonth: int = input()
+    print("Enter day of registration, in numbers")
+    mday: int = input()
+    print("Enter hour of registration, in numbers")
+    mhour: int = input()
+    print("Enter minute of registration, in numbers")
+    mminute: int = input()
 
-    driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
-    # print(driver.title)
-    #time.sleep(5)
-    print("Hello, please type in your K ID")
+    print("Please type in your K ID")
     usernameinput = input()
-
 
     print("Please type in your password")
     passwordinput = input()
+
+    print("Copy path for chrome driver")
+    path = input() + "\chromedriver.exe"
+
+    x = datetime.today()
+    y = x.replace(month=int(mmonth), day=int(mday), hour=int(mhour), minute=int(mminute)) - timedelta(minutes=3)
+    delta_t = y - x
+
+    secs = delta_t.total_seconds()
+    print(secs)
+
+    time.sleep(secs)
+
+    registerME()
+
+def registerME():
+    # PATH = "C:/Program Files (x86)/chromedriver.exe"
+
+    # print("Copy path for chrome driver")
+    # path = input() + "\chromedriver.exe"
+
+    driver = webdriver.Chrome(path)
+
+    driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
+
+    time.sleep(5)
+    # print("Hello, please type in your K ID")
+    # usernameinput = input()
+    #
+    #
+    # print("Please type in your password")
+    # passwordinput = input()
 
 
     username = driver.find_element_by_id("UserName")
@@ -83,4 +119,4 @@ def registerME():
 
 
 if __name__ == '__main__':
-    registerME()
+    timerForRegistration()
