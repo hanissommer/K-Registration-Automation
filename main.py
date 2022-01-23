@@ -9,6 +9,8 @@ from datetime import datetime, timedelta
 import os
 
 cwd = os.getcwd()
+end = "pythonProject"
+pathfind = (cwd[0:cwd.index(end)+len(end)])
 # This is a script to register for classes
 
 usernameinput = ''
@@ -28,7 +30,7 @@ def timerForRegistration():
     passwordinput = input("Please enter your password: ")
 
     print()
-    path = cwd + "\chromedriver.exe"
+    path = pathfind + "\chromedriver.exe"
 
 
     x = datetime.today()
@@ -100,11 +102,12 @@ def registerME():
             time.sleep(3)
 
 if __name__ == '__main__':
+    print(pathfind)
     decider = input("Do you want to schedule for later?(y/n) ")
     if (decider == 'y'):
         timerForRegistration()
     else:
         usernameinput = input("Please type in your K ID: ")
         passwordinput = input("Please type in your password: ")
-        path = cwd + "\chromedriver.exe"
+        path = pathfind + "\chromedriver.exe"
         registerME()
