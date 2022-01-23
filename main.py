@@ -14,21 +14,19 @@ def registerME():
     driver = webdriver.Chrome(PATH)
     driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
     # print(driver.title)
-    time.sleep(5)
+    #time.sleep(5)
     print("Hello, please type in your K ID")
     usernameinput = input()
 
     print("Please type in your password")
     passwordinput = input()
 
-    # passwordinput = ("Twenty20Tw0p@$$")
     username = driver.find_element_by_id("UserName")
     username.send_keys(usernameinput)
-    # username.send_keys("k19hs02")
 
     password = driver.find_element_by_id("Password")
     password.send_keys(passwordinput)
-    # password.send_keys("Twenty20Tw0p@$$")
+
     password.send_keys(Keys.RETURN)
 
     time.sleep(5)
