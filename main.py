@@ -24,22 +24,24 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 def registerME():
-    # PATH = "C:/Program Files (x86)/chromedriver.exe"
-    # driver = webdriver.Chrome(PATH)
+    PATH = "C:/Program Files (x86)/chromedriver.exe"
+
+    print("Copy path for chrome driver")
+    path = input() + "\chromedriver.exe"
+    driver = webdriver.Chrome(path)
 
     # driver = webdriver.Remote(
     #     command_executor='http://192.168.0.117:5556/wd/hub',
     #     desired_capabilities={'browserName': 'chrome',
     #                           'version': '2',
     #                           'javascriptEnabled': True})
-    #selenium_grid_url = "http://192.168.0.117:5556"
-    print("Type in port number:")
-    portnumber = input()
-    selenium_grid_url = "http://192.168.0.117:" + portnumber + "/wd/hub"
-
-    driver = webdriver.Remote(command_executor=selenium_grid_url, desired_capabilities=DesiredCapabilities.CHROME.copy())
-    #driver.click(selenium_grid_url)
-
+    # selenium_grid_url = "http://192.168.0.117:5556"
+    # print("Type in port number:")
+    # portnumber = input()
+    # selenium_grid_url = "http://192.168.0.117:" + portnumber + "/wd/hub"
+    #
+    # driver = webdriver.Remote(command_executor=selenium_grid_url, desired_capabilities=DesiredCapabilities.CHROME.copy())
+    # driver.click(selenium_grid_url)
 
     # driver = webdriver.Chrome(resource_path('C:/Users/hanis/PycharmProjects/pythonProject/driver/chromedriver.exe'))
 
