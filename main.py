@@ -7,7 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from tkinter import *
 from datetime import datetime, timedelta
 
-# Press the green button in the gutter to run the script.
 # This is a script to register for classes
 
 usernameinput = ''
@@ -15,25 +14,20 @@ passwordinput = ''
 path = ''
 
 def timerForRegistration():
-    print("Enter year of registration")
-    myear: int = input()
-    print("Enter month of registration, in numbers")
-    mmonth: int = input()
-    print("Enter day of registration, in numbers")
-    mday: int = input()
-    print("Enter hour of registration, in numbers")
-    mhour: int = input()
-    print("Enter minute of registration, in numbers")
-    mminute: int = input()
 
-    print("Please type in your K ID")
-    usernameinput = input()
+    #myear: int = input("Enter year of registration (E.g: 2023): ")
+    mmonth: int = input("Enter month of registration (E.g: 1): ")
+    mday: int = input("Enter day of registration (E.g: 23): ")
+    mhour: int = input("Enter hour of registration (E.g: 9): ")
+    mminute: int = input("Enter minute of registration (E.g: 45): ")
 
-    print("Please type in your password")
-    passwordinput = input()
+    print()
+    usernameinput = input("Please enter your K ID: ")
+    passwordinput = input("Please enter your password: ")
 
-    print("Copy path for chrome driver")
-    path = input() + "\chromedriver.exe"
+    print()
+    path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
+
 
     x = datetime.today()
     y = x.replace(month=int(mmonth), day=int(mday), hour=int(mhour), minute=int(mminute)) - timedelta(minutes=3)
@@ -47,24 +41,10 @@ def timerForRegistration():
     registerME()
 
 def registerME():
-    # PATH = "C:/Program Files (x86)/chromedriver.exe"
-
-    # print("Copy path for chrome driver")
-    # path = input() + "\chromedriver.exe"
-
     driver = webdriver.Chrome(path)
-
     driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
 
     time.sleep(5)
-    # print("Hello, please type in your K ID")
-    # usernameinput = input()
-    #
-    #
-    # print("Please type in your password")
-    # passwordinput = input()
-
-
     username = driver.find_element_by_id("UserName")
     username.send_keys(usernameinput)
 
@@ -119,7 +99,7 @@ def registerME():
 
 
 if __name__ == '__main__':
-    decider = input("Do you want to schedule to run later?(y/n) ")
+    decider = input("Do you want to schedule for later?(y/n) ")
     if (decider == 'y'):
         timerForRegistration()
     else:
