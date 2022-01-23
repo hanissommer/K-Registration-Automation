@@ -1,4 +1,4 @@
-# registerBot
+# KregisterBot
 This is a python program that asks the user for their K credentials and logs into Hornet HQ and attempts to register for courses.
 
 This program will allow for users to not have to manually register for classes but instead use this program to automate the process.
@@ -9,11 +9,11 @@ Note: The program runs on Chrome browser only
 
 > Unzip the folder and paste the unzipped folder in the same 'Downloads' folder
 
-> Navigate: >registerBot-master>dist>main>main.exe
+> Navigate: >KregisterBot-master>dist>main>main.exe
 
 > A terminal should open as well as a Chrome browser window with HornetHQ. 
 
-> In the terminal, you will be prompted to Copy path for chrome driver. It should be something like: "C:\Users\*your_name*\registerBot-master\registerBot-master"
+> In the terminal, you will be prompted to Copy path for chrome driver. It should be something like: "C:\Users\*your_name*\KregisterBot-master\KregisterBot-master"
 
 > In the terminal, you will be prompted to enter your K ID and password. Hit enter after typing in each.
 
