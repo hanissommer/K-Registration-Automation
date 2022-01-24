@@ -1,4 +1,4 @@
-# KregisterBot
+# K Registration Automation
 Note: The program will ony run on a Chrome browser and will only work on Windows OS. 
 
 > To start, click the 'Code' button, select 'Download ZIP' , and chose your downloads folder as the download path
