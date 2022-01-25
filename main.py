@@ -13,38 +13,35 @@ import os
 # pathfind = (cwd[0:cwd.index(end)+len(end)])
 # This is a script to register for classes
 
-usernameinput = ''
-passwordinput = ''
-path = ''
+# usernameinput = ''
+# passwordinput = ''
+# path = ''
 
-def timerForRegistration():
+def timerForRegistration(path, usernameinput, passwordinput):
 
-    #myear: int = input("Enter year of registration (E.g: 2023): ")
+    # myear: int = input("Enter year of registration (E.g: 2023): ")
     mmonth: int = input("Enter month of registration (E.g: 1): ")
     mday: int = input("Enter day of registration (E.g: 23): ")
     mhour: int = input("Enter hour of registration (E.g: 9): ")
     mminute: int = input("Enter minute of registration (E.g: 45): ")
 
-    print()
-    usernameinput = input("Please enter your K ID: ")
-    passwordinput = input("Please enter your password: ")
+    # print()
+    # usernameinput = input("Please enter your K ID: ")
+    # passwordinput = input("Please enter your password: ")
 
-    print()
-    path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
-
+    # path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
 
     x = datetime.today()
     y = x.replace(month=int(mmonth), day=int(mday), hour=int(mhour), minute=int(mminute)) - timedelta(minutes=3)
     delta_t = y - x
 
     secs = delta_t.total_seconds()
-    print(secs)
+    print("Time before the program starts running: " + str(secs))
 
     time.sleep(secs)
+    registerME(path, usernameinput, passwordinput)
 
-    registerME()
-
-def registerME():
+def registerME(path, usernameinput, passwordinput):
     driver = webdriver.Chrome(path)
     driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
 
@@ -105,9 +102,12 @@ if __name__ == '__main__':
     #print(pathfind)
     decider = input("Do you want to schedule for later?(y/n) ")
     if (decider == 'y'):
-        timerForRegistration()
+        usernameinput = input("Please type in your K ID: ")
+        passwordinput = input("Please type in your password: ")
+        path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
+        timerForRegistration(path, usernameinput, passwordinput)
     else:
         usernameinput = input("Please type in your K ID: ")
         passwordinput = input("Please type in your password: ")
         path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
-        registerME()
+        registerME(path, usernameinput, passwordinput)
