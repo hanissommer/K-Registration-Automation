@@ -22,7 +22,7 @@ def timerForRegistration():
     #myear: int = input("Enter year of registration (E.g: 2023): ")
     mmonth: int = input("Enter month of registration (E.g: 1): ")
     mday: int = input("Enter day of registration (E.g: 23): ")
-    mhour: int = input("Enter hour of registration (E.g: 9): ")
+    mhour: int = input("Enter hour of registration (E.g: 17)[Use military time]: ")
     mminute: int = input("Enter minute of registration (E.g: 45): ")
 
     print()
