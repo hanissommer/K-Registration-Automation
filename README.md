@@ -13,7 +13,7 @@ Note: The program will ony run on a Chrome browser and will only work on Windows
 
 > You will also be prompted to Copy path for chrome driver. The path should be something like: "C:\Users\John\K-Registration-Automation-master\KregisterBot-master"
 
-> The browser will open (if you scheduled it for later, it will print a number of seconds that it will take before it opens) and logs you in. 
+> The browser will open (if you scheduled it for later, it will print a number of seconds that it will take before it opens) and log you in. 
 
 > The program should is set to log you in and navigate to the page on which you register 3 minutes before your registration time.
 
