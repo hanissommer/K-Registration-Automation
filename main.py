@@ -108,6 +108,9 @@ def registerME():
 if __name__ == '__main__':
     path = pathfind
     exepath = cwd + "\main.exe"
+    print("Hello, checking to see if it is time to run..")
+    time.sleep(5)
+
     #path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
     file_exists = os.path.exists('logininfoe.txt')
     if (file_exists):
@@ -125,8 +128,12 @@ if __name__ == '__main__':
             mhour = g1.readline()
             mminute = g1.readline()
             timerForRegistration()
+        else:
+            print("No, not today\n")
+            time.sleep(3)
+            sys.exit()
     else:
-
+        print("No, not yet\n")
         decider = input("Do you want to schedule for later?(y/n) ")
         if (decider == 'y'):
             # z = open("startbatch.Bat", "w")
@@ -150,7 +157,7 @@ if __name__ == '__main__':
             g1.write(mday + "\n")
             g1.write(mhour + "\n")
             g1.write(mminute + "\n")
-            print("You are all set! The program will run then - just make sure to have your pc booted up on the day")
+            print("You are all set! The program will start running two minutes before your registration time - just make sure to have your pc booted up on the day")
             time.sleep(15)
             sys.exit()
         else:
