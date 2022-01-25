@@ -139,11 +139,11 @@ if __name__ == '__main__':
         print("No, not yet\n")
         decider = input("Do you want to schedule for later?(y/n) ")
         if (decider == 'y'):
-            z = open("startbatch.Bat", "w")
-            z.write("start \"\" \"" + exepath + "\"")
-            batchpath = cwd + "\startbatch.Bat"
-            shrotcutpath = startpath + "\startbatchshort.lnk"
-            target = batchpath
+            # z = open("startbatch.Bat", "w")
+            # z.write("start \"\" \"" + exepath + "\"")
+            # batchpath = cwd + "\startbatch.Bat"
+            shrotcutpath = startpath + "\startmainexe.lnk"
+            target = exepath
 
 
             shell = win32com.client.Dispatch('WScript.Shell')
