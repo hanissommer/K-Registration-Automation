@@ -8,22 +8,19 @@ from tkinter import *
 from datetime import datetime, timedelta
 import os
 
-# cwd = os.getcwd()
-# end = "pythonProject"
-# pathfind = (cwd[0:cwd.index(end)+len(end)])
+cwd = os.getcwd()
+end = "K-Registration-Automation-master"
+pathfind = (cwd[0:cwd.index(end)+len(end)]) + "\chromedriver.exe"
 # This is a script to register for classes
 
-# usernameinput = ''
-# passwordinput = ''
-# path = ''
 
-def timerForRegistration(path, usernameinput, passwordinput):
+def timerForRegistration():
 
     # myear: int = input("Enter year of registration (E.g: 2023): ")
-    mmonth: int = input("Enter month of registration (E.g: 1): ")
-    mday: int = input("Enter day of registration (E.g: 23): ")
-    mhour: int = input("Enter hour of registration (E.g: 17)[Use military time]: ")
-    mminute: int = input("Enter minute of registration (E.g: 45): ")
+    mmonth = input("Enter month of registration (E.g: 1): ")
+    mday = input("Enter day of registration (E.g: 23): ")
+    mhour = input("Enter hour of registration (E.g: 17)[Use military time]: ")
+    mminute = input("Enter minute of registration (E.g: 45): ")
 
     # print()
     # usernameinput = input("Please enter your K ID: ")
@@ -39,13 +36,14 @@ def timerForRegistration(path, usernameinput, passwordinput):
     print("Time before the program starts running: " + str(secs))
 
     time.sleep(secs)
-    registerME(path, usernameinput, passwordinput)
+    registerME()
 
-def registerME(path, usernameinput, passwordinput):
+
+def registerME():
     driver = webdriver.Chrome(path)
     driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
 
-    time.sleep(5)
+    time.sleep(3)
     username = driver.find_element_by_id("UserName")
     username.send_keys(usernameinput)
 
@@ -54,7 +52,7 @@ def registerME(path, usernameinput, passwordinput):
 
     password.send_keys(Keys.RETURN)
 
-    time.sleep(5)
+    # time.sleep(5)
 
     try:
         studplanning = WebDriverWait(driver, 5).until(
@@ -98,16 +96,19 @@ def registerME(path, usernameinput, passwordinput):
             nextTerm.click()
             time.sleep(3)
 
+
 if __name__ == '__main__':
-    #print(pathfind)
+    # print("This is it: " + pathfind)
+    path = pathfind
     decider = input("Do you want to schedule for later?(y/n) ")
     if (decider == 'y'):
         usernameinput = input("Please type in your K ID: ")
         passwordinput = input("Please type in your password: ")
-        path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
-        timerForRegistration(path, usernameinput, passwordinput)
+        # path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
+        timerForRegistration()
     else:
+        print (pathfind)
         usernameinput = input("Please type in your K ID: ")
         passwordinput = input("Please type in your password: ")
-        path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
-        registerME(path, usernameinput, passwordinput)
+        # path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
+        registerME()
