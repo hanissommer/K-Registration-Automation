@@ -16,7 +16,7 @@ pathfind = (cwd[0:cwd.index(end)+len(end)]) + "\chromedriver.exe"
 # This is a script to register for classes
 path = ''
 end1="\Downloads"
-startpath = (cwd[0:cwd.index(end1)]) + "AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+startpath = (cwd[0:cwd.index(end1)]) + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 batchpath = cwd + "\startbatch.Bat"
 
 def timerForRegistration():
@@ -125,8 +125,8 @@ if __name__ == '__main__':
             mminute = g1.readline()
             timerForRegistration()
     else:
-        z = open("batch.Bat", "w")
-        z.write("start \"\" \""+ exepath)
+        z = open("startbatch.Bat", "w")
+        z.write("start \"\" \""+ exepath + "\"")
         shutil.copy2(batchpath, startpath)
         decider = input("Do you want to schedule for later?(y/n) ")
         if (decider == 'y'):
