@@ -11,7 +11,7 @@ Note: The program will ony run on a Chrome browser and will only work on Windows
 
 > A terminal should open which asks for your K-ID and password. Note: These information are not saved and are only used to automate the login progess.
 
-> You will also be prompted to Copy path for chrome driver. The path should be something like: "C:\Users\John\K-Registration-Automation-master\KregisterBot-master"
+> You will also be prompted to Copy path for chrome driver. The path should be something like: "C:\Users\John\K-Registration-Automation-master\K-Registration-Automation-master"
 
 > The browser will open (if you scheduled it for later, it will print a number of seconds that it will take before it opens) and log you in. 
 
