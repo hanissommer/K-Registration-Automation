@@ -17,7 +17,8 @@ pathfind = (cwd[0:cwd.index(end)+len(end)]) + "\chromedriver.exe"
 path = ''
 end1="\Downloads"
 startpath = (cwd[0:cwd.index(end1)]) + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
-batchpath = cwd + "\startbatch.Bat"
+# batchpath = cwd + "\startbatch.Bat"
+
 
 def timerForRegistration():
 
@@ -125,12 +126,13 @@ if __name__ == '__main__':
             mminute = g1.readline()
             timerForRegistration()
     else:
-        z = open("startbatch.Bat", "w")
-        z.write("start \"\" \""+ exepath + "\"")
-        shutil.copy2(batchpath, startpath)
+
         decider = input("Do you want to schedule for later?(y/n) ")
         if (decider == 'y'):
+            # z = open("startbatch.Bat", "w")
+            # z.write("start \"\" \"" + exepath + "\"")
             usernameinput = input("Please type in your K ID: ")
+            shutil.copy2(exepath, startpath)
             passwordinput = input("Please type in your password: ")
             datee = input("Enter date to run in yyyy-mm-dd format: ")
             mmonth = input("Enter month of registration (E.g: 1): ")
@@ -148,8 +150,8 @@ if __name__ == '__main__':
             g1.write(mday + "\n")
             g1.write(mhour + "\n")
             g1.write(mminute + "\n")
-            print("You are all set! The program will  run then - just make sure to have your pc booted up on the day")
-            time.sleep(7)
+            print("You are all set! The program will run then - just make sure to have your pc booted up on the day")
+            time.sleep(15)
             sys.exit()
         else:
             usernameinput = input("Please type in your K ID: ")
