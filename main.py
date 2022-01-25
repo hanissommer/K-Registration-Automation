@@ -6,9 +6,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from tkinter import *
 from datetime import date, datetime, timedelta
-import os
 import sys
-import shutil
+import os, winshell
+# from win32com.client import dispatch
+import dispatch
 
 cwd = os.getcwd()
 end = "\K-Registration-Automation-master"
@@ -19,6 +20,18 @@ end1="\Downloads"
 startpath = (cwd[0:cwd.index(end1)]) + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 batchpath = cwd + "\startbatch.Bat"
 
+desktop = winshell.desktop()
+path1 = os.path.join(desktop, "Media Player Classic.lnk")
+target = batchpath
+wDir = cwd
+icon = batchpath
+
+shell = dispatch('WScript.Shell')
+shortcut = shell.CreateShortCut(startpath)
+shortcut.Targetpath = target
+shortcut.WorkingDirectory = wDir
+shortcut.IconLocation = icon
+shortcut.save()
 
 def timerForRegistration():
 
@@ -111,7 +124,7 @@ if __name__ == '__main__':
     print("Hello, checking to see if it is time to run..")
     time.sleep(5)
 
-    #path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
+    path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
     file_exists = os.path.exists('logininfoe.txt')
     if (file_exists):
         f = open("logininfoe.txt", "rt")
@@ -136,10 +149,15 @@ if __name__ == '__main__':
         print("No, not yet\n")
         decider = input("Do you want to schedule for later?(y/n) ")
         if (decider == 'y'):
-            z = open("startbatch.Bat", "w")
-            z.write("start \"\" \"" + exepath + "\"")
+            # z = open("startbatch.Bat", "w")
+            # z.write("start \"\" \"" + exepath + "\"")
+            shell = dispatch('WScript.Shell')
+            shortcut = shell.CreateShortCut(startpath)
+            shortcut.Targetpath = target
+            shortcut.WorkingDirectory = wDir
+            shortcut.IconLocation = icon
+            shortcut.save()
             usernameinput = input("Please type in your K ID: ")
-            shutil.copy2(batchpath, startpath)
             passwordinput = input("Please type in your password: ")
             datee = input("Enter date to run in yyyy-mm-dd format: ")
             mmonth = input("Enter month of registration (E.g: 1): ")
