@@ -1,18 +1,19 @@
-# KregisterBot
-Note: The program runs on Chrome browser only
+# K Registration Automation
+Note: The program will ony run on a Chrome browser and will only work on Windows OS. 
 
 > To start, click the 'Code' button, select 'Download ZIP' , and chose your downloads folder as the download path
 
 > Unzip the folder and paste the unzipped folder in the same 'Downloads' folder
 
-> Navigate: >KregisterBot-master>dist>main>main.exe
+> Navigate: >K-Registration-Automation-master>dist>main>main.exe
+
 > You will need to agree to run this program anyway or bypass your computer's virus defense as this will not be a program from a recognized publisher
 
-> A terminal should open as well as a Chrome browser window with HornetHQ. 
+> A terminal should open which asks for your K-ID and password. Note: These information are not saved and are only used to automate the login progess.
 
-> In the terminal, you will be prompt for a few info, hit enter after typing in each.
+> You will also be prompted to Copy path for chrome driver. The path should be something like: "C:\Users\John\K-Registration-Automation-master\KregisterBot-master"
 
-> You will also be prompted to Copy path for chrome driver. The path should be something like: "C:\Users\*your_name*\KregisterBot-master\KregisterBot-master"
+> The browser will open (if you scheduled it for later, it will print a number of seconds that it will take before it opens) and log you in. 
 
 > The program should is set to log you in and navigate to the page on which you register 3 minutes before your registration time.
 
