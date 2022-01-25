@@ -1,3 +1,4 @@
+import win32com
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -17,6 +18,7 @@ pathfind = (cwd[0:cwd.index(end)+len(end)]) + "\chromedriver.exe"
 # This is a script to register for classes
 path = ''
 end1="\Downloads"
+
 startpath = (cwd[0:cwd.index(end1)]) + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 
 
@@ -140,15 +142,14 @@ if __name__ == '__main__':
             z = open("startbatch.Bat", "w")
             z.write("start \"\" \"" + exepath + "\"")
             batchpath = cwd + "\startbatch.Bat"
+            shrotcutpath = startpath + "\startbatchshort.lnk"
             target = batchpath
-            wDir = cwd
-            icon = batchpath
 
-            shell = Dispatch('WScript.Shell')
-            shortcut = shell.CreateShortCut(startpath)
+
+            shell = win32com.client.Dispatch('WScript.Shell')
+            shortcut = shell.CreateShortCut(shrotcutpath)
             shortcut.Targetpath = target
-            shortcut.WorkingDirectory = wDir
-            shortcut.IconLocation = icon
+            shortcut.WindowStyle = 7
             shortcut.save()
 
             usernameinput = input("Please type in your K ID: ")
