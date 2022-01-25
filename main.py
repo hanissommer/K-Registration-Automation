@@ -21,17 +21,6 @@ startpath = (cwd[0:cwd.index(end1)]) + "\AppData\Roaming\Microsoft\Windows\Start
 batchpath = cwd + "\startbatch.Bat"
 
 
-target = batchpath
-wDir = cwd
-icon = batchpath
-
-shell = Dispatch('WScript.Shell')
-shortcut = shell.CreateShortCut(startpath)
-shortcut.Targetpath = target
-shortcut.WorkingDirectory = wDir
-shortcut.IconLocation = icon
-shortcut.save()
-
 def timerForRegistration():
 
     # myear: int = input("Enter year of registration (E.g: 2023): ")
@@ -123,7 +112,7 @@ if __name__ == '__main__':
     print("Hello, checking to see if it is time to run..")
     time.sleep(5)
 
-    path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
+    # path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
     file_exists = os.path.exists('logininfoe.txt')
     if (file_exists):
         f = open("logininfoe.txt", "rt")
@@ -150,12 +139,17 @@ if __name__ == '__main__':
         if (decider == 'y'):
             # z = open("startbatch.Bat", "w")
             # z.write("start \"\" \"" + exepath + "\"")
+            target = batchpath
+            wDir = cwd
+            icon = batchpath
+
             shell = Dispatch('WScript.Shell')
             shortcut = shell.CreateShortCut(startpath)
             shortcut.Targetpath = target
             shortcut.WorkingDirectory = wDir
             shortcut.IconLocation = icon
             shortcut.save()
+
             usernameinput = input("Please type in your K ID: ")
             passwordinput = input("Please type in your password: ")
             datee = input("Enter date to run in yyyy-mm-dd format: ")
