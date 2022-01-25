@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 import os
 
 cwd = os.getcwd()
-end = "K-Registration-Automation-master/K-Registration-Automation-master"
+end = "K-Registration-Automation-master\K-Registration-Automation-master"
 pathfind = (cwd[0:cwd.index(end)+len(end)]) + "\chromedriver.exe"
 # This is a script to register for classes
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
         # path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
         timerForRegistration()
     else:
-        print (path)
+        print(path)
         usernameinput = input("Please type in your K ID: ")
         passwordinput = input("Please type in your password: ")
         # path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
