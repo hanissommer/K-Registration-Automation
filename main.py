@@ -149,6 +149,7 @@ if __name__ == '__main__':
             shell = win32com.client.Dispatch('WScript.Shell')
             shortcut = shell.CreateShortCut(shrotcutpath)
             shortcut.Targetpath = target
+            shortcut.WorkingDirectory = cwd
             shortcut.WindowStyle = 1
             shortcut.save()
 
