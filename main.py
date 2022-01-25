@@ -18,7 +18,7 @@ pathfind = (cwd[0:cwd.index(end)+len(end)]) + "\chromedriver.exe"
 path = ''
 end1="\Downloads"
 startpath = (cwd[0:cwd.index(end1)]) + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
-batchpath = cwd + "\startbatch.Bat"
+
 
 
 def timerForRegistration():
@@ -137,8 +137,9 @@ if __name__ == '__main__':
         print("No, not yet\n")
         decider = input("Do you want to schedule for later?(y/n) ")
         if (decider == 'y'):
-            # z = open("startbatch.Bat", "w")
-            # z.write("start \"\" \"" + exepath + "\"")
+            z = open("startbatch.Bat", "w")
+            z.write("start \"\" \"" + exepath + "\"")
+            batchpath = cwd + "\startbatch.Bat"
             target = batchpath
             wDir = cwd
             icon = batchpath
