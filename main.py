@@ -149,7 +149,7 @@ if __name__ == '__main__':
             shell = win32com.client.Dispatch('WScript.Shell')
             shortcut = shell.CreateShortCut(shrotcutpath)
             shortcut.Targetpath = target
-            shortcut.WindowStyle = 7
+            shortcut.WindowStyle = 1
             shortcut.save()
 
             usernameinput = input("Please type in your K ID: ")
