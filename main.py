@@ -15,35 +15,19 @@ from win32com.client import Dispatch
 cwd = os.getcwd()
 end = "\K-Registration-Automation-master"
 pathfind = (cwd[0:cwd.index(end)+len(end)]) + "\chromedriver.exe"
-# This is a script to register for classes
 path = ''
 end1="\Downloads"
 
 startpath = (cwd[0:cwd.index(end1)]) + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 
 
-
 def timerForRegistration():
-
-    # myear: int = input("Enter year of registration (E.g: 2023): ")
-    # mmonth = input("Enter month of registration (E.g: 1): ")
-    # mday = input("Enter day of registration (E.g: 23): ")
-    # mhour = input("Enter hour of registration (E.g: 17)[Use military time]: ")
-    # mminute = input("Enter minute of registration (E.g: 45): ")
-
-    # print()
-    # usernameinput = input("Please enter your K ID: ")
-    # passwordinput = input("Please enter your password: ")
-
-    # path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
-
     x = datetime.today()
     y = x.replace(month=int(mmonth), day=int(mday), hour=int(mhour), minute=int(mminute)) - timedelta(minutes=1)
     delta_t = y - x
 
     secs = delta_t.total_seconds()
-    print(secs)
-    print("Time before the program starts running: " + str(secs))
+    print("Number of minutes before the program starts running: " + str(secs/60))
 
     time.sleep(secs)
     registerME()
@@ -61,7 +45,6 @@ def registerME():
     password.send_keys(passwordinput)
     time.sleep(3)
     #password.send_keys(Keys.RETURN)
-
     # time.sleep(5)
 
     try:
@@ -95,10 +78,12 @@ def registerME():
             )
             register.click()
             registered = True
+            print("You have successfully registered!")
+            time.sleep(30)
             driver.close()
         except:
             driver.refresh()
-            # To be removed for actual register code [to 73]
+            # To be removed for actual register code
             time.sleep(3)
             nextTerm = WebDriverWait(driver, 3).until(
                 EC.presence_of_element_located((By.ID, "schedule-next-term"))
@@ -106,15 +91,11 @@ def registerME():
             nextTerm.click()
             time.sleep(2)
 
-    # if str(date.today()) == "2022-01-24":
-    #     print("yes")
 if __name__ == '__main__':
     path = pathfind
     exepath = cwd + "\main.exe"
-    print("Hello, checking to see if it is time to run..")
+    print("Hello there, just checking to see if it is time to register and/or everything is in place...")
     time.sleep(5)
-
-    # path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
     file_exists = os.path.exists('logininfoe.txt')
     if (file_exists):
         f = open("logininfoe.txt", "rt")
@@ -123,7 +104,7 @@ if __name__ == '__main__':
         g1 = open("timeinfo.txt", "rt")
         datt = g.readline()
         if datt == str(date.today()):
-            print("yes")
+            print("Yes, it is...")
             usernameinput = f.readline()
             passwordinput = f1.readline()
             mmonth = g1.readline()
@@ -139,9 +120,6 @@ if __name__ == '__main__':
         print("No, not yet\n")
         decider = input("Do you want to schedule for later?(y/n) ")
         if (decider == 'y'):
-            # z = open("startbatch.Bat", "w")
-            # z.write("start \"\" \"" + exepath + "\"")
-            # batchpath = cwd + "\startbatch.Bat"
             shrotcutpath = startpath + "\startmainexe.lnk"
             target = exepath
 
@@ -177,6 +155,5 @@ if __name__ == '__main__':
         else:
             usernameinput = input("Please type in your K ID: ")
             passwordinput = input("Please type in your password: ")
-            # path = input("Paste path for chromedriver.exe: ") + "\chromedriver.exe"
             path = pathfind
             registerME()
