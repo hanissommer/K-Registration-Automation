@@ -29,7 +29,7 @@ def register(pathway, kid, kpassword):
     password.send_keys(kpassword)
     # Waits 3 seconds
     time.sleep(3)
-    # password.send_keys(Keys.RETURN)
+    password.send_keys(Keys.RETURN)
 
     # This is a series of code that will navigate from the homepage to the
     # registration section

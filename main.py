@@ -23,8 +23,6 @@ cwd = os.getcwd()
 end = "\K-Registration-Automation-master"
 # Putting the file path for the chromedriver together
 pathfind = (cwd[0:cwd.index(end)+len(end)+len(end)]) + "\chromedriver.exe"
-
-
 path = ''
 
 # THIS SECTION IS TO FIND THE PATH TO WHERE THE SHORTCUT TO THE EXE OF THE PROGRAM WILL BE
