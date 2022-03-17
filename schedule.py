@@ -2,14 +2,15 @@ import time
 import win32com
 from win32com.client import Dispatch
 import registration
-from main import mmonth, mday, mhour, mminute, startpath, exepath, cwd
+import main
 from datetime import datetime, timedelta
 
 
 # THIS FUNCTION CREATES A TIMER BEFORE WHICH THE PROGRAM WILL RUN
 def timer():
     x = datetime.today()
-    y = x.replace(month=int(mmonth), day=int(mday), hour=int(mhour), minute=int(mminute)) - timedelta(minutes=1)
+    y = x.replace(month=int(main.mmonth), day=int(main.mday), hour=int(main.mhour),
+                  minute=int(main.mminute)) - timedelta(minutes=1)
     delta_t = y - x
 
     secs = delta_t.total_seconds()
@@ -21,44 +22,44 @@ def timer():
 def getinfo():
     # Creates and stores the path to where the shortcut to the program's executable
     # will be stored -- in the user's pc's startup folder
-    shrotcutpath = startpath + "\startmainexe.lnk"
+    shrotcutpath = main.startpath + "\startmainexe.lnk"
     # Stores the path to the program's executable
-    target = exepath
+    target = main.exepath
 
     # Creates and store the shortcut in the previously determined location on the user's pc
     shell = win32com.client.Dispatch('WScript.Shell')
     shortcut = shell.CreateShortCut(shrotcutpath)
     shortcut.Targetpath = target
-    shortcut.WorkingDirectory = cwd
+    shortcut.WorkingDirectory = main.cwd
     shortcut.WindowStyle = 1
     shortcut.save()
 
     # Asks the user for information that the program will need to run at a later date
-    usernameinput = input("Please type in your K ID: ")
-    passwordinput = input("Please type in your password: ")
-    datee = input("Enter date to run in yyyy-mm-dd format: ")
-    mmonth = input("Enter month of registration (E.g: 1): ")
-    mday = input("Enter day of registration (E.g: 23): ")
-    mhour = input("Enter hour of registration (E.g: 17)[Use military time]: ")
-    mminute = input("Enter minute of registration (E.g: 45): ")
+    main.usernameinput = input("Please type in your K ID: ")
+    main.passwordinput = input("Please type in your password: ")
+    main.datee = input("Enter date to run in yyyy-mm-dd format: ")
+    main.mmonth = input("Enter month of registration (E.g: 1): ")
+    main.mday = input("Enter day of registration (E.g: 23): ")
+    main.mhour = input("Enter hour of registration (E.g: 17)[Use military time]: ")
+    main.mminute = input("Enter minute of registration (E.g: 45): ")
 
     # Creates and write to text files with each information asked for from the user
 
     # User's email
     f = open("logininfoe.txt", "w")
-    f.write(usernameinput + "\n")
+    f.write(main.usernameinput + "\n")
     # User's password
     f1 = open("logininfop.txt", "w")
-    f1.write(passwordinput + "\n")
+    f1.write(main.passwordinput + "\n")
     # User's date of registration
     g = open("dateinfo.txt", "w")
-    g.write(datee)
+    g.write(main.datee)
     # User's time of registration (The date is a redundancy here)
     g1 = open("timeinfo.txt", "w")
-    g1.write(mmonth + "\n")
-    g1.write(mday + "\n")
-    g1.write(mhour + "\n")
-    g1.write(mminute + "\n")
+    g1.write(main.mmonth + "\n")
+    g1.write(main.mday + "\n")
+    g1.write(main.mhour + "\n")
+    g1.write(main.mminute + "\n")
 
     # Tells the user that the program has everything it needs to run on the date of registration
     # then closes after 15 seconds

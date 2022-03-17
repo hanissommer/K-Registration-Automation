@@ -5,12 +5,12 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from main import usernameinput, passwordinput, path
+import main
 
 
 def register():
     # A variable to get the chrome driver
-    driver = webdriver.Chrome(path)
+    driver = webdriver.Chrome(main.path)
     # The driver then opens the website to register on (Hornet HQ)
     driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
     # Wait 5 seconds -- for the page to load
@@ -18,7 +18,7 @@ def register():
     # Finds the username element on the webpage -- which should be a textfield
     username = driver.find_element_by_id("UserName")
     # Fills the textfield with the username entered by the user
-    username.send_keys(usernameinput, Keys.TAB)
+    username.send_keys(main.usernameinput, Keys.TAB)
     # Wait 3 seconds
     time.sleep(3)
     # Finds the username element on the webpage -- which should be a textfield
@@ -26,7 +26,7 @@ def register():
     # Fills the textfield with the password entered by the user
     # This built-in functions automatically hit the 'Enter' key afterwards
     # which advances to Hornet HQ's homepage
-    password.send_keys(passwordinput)
+    password.send_keys(main.passwordinput)
     # Waits 3 seconds
     time.sleep(3)
     # password.send_keys(Keys.RETURN)

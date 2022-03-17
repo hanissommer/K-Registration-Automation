@@ -5,6 +5,15 @@ from datetime import date
 import registration
 import schedule
 
+usernameinput = ''
+passwordinput = ''
+mmonth = ''
+mday = ''
+mhour = ''
+mminute = ''
+datee = ''
+
+
 # Find the path to where the program is from on the user's machine
 cwd = os.getcwd()
 
