@@ -16,6 +16,7 @@ datee = ''
 
 # Find the path to where the program is from on the user's machine
 cwd = os.getcwd()
+exepath = cwd + "\main.exe"
 
 # THIS SECTION BELOW IS TO FIND THE PATH OF THE CHROME DRIVER
 
@@ -24,6 +25,7 @@ end = "\K-Registration-Automation-master"
 # Putting the file path for the chromedriver together
 pathfind = (cwd[0:cwd.index(end)+len(end)+len(end)]) + "\chromedriver.exe"
 path = ''
+
 
 # THIS SECTION IS TO FIND THE PATH TO WHERE THE SHORTCUT TO THE EXE OF THE PROGRAM WILL BE
 
@@ -39,7 +41,7 @@ if __name__ == '__main__':
     # Initializes the 'path' to be that which was determined at the top
     path = pathfind
     # Stores the path of the executable file for the program
-    exepath = cwd + "\main.exe"
+    #exepath = cwd + "\main.exe"
     print("Hello there, just checking to see if it is time to register and/or everything is in place...")
     time.sleep(5)
     # This checks if the user had already opened the program before and filled in the login info it asks for
@@ -69,7 +71,7 @@ if __name__ == '__main__':
             mday = g1.readline()
             mhour = g1.readline()
             mminute = g1.readline()
-            schedule.timer()
+            schedule.timer(path, usernameinput, passwordinput, mmonth, mday, mhour, mminute)
         # If the dates are not the same it means that it is not the day to register,
         # and the program will close
         else:
@@ -86,7 +88,7 @@ if __name__ == '__main__':
         # If the user replied with yes, we will need to ask for some more information than if
         # they said no -- which means they would want to run it the same day they are using it
         if decider == 'y':
-            schedule.getinfo()
+            schedule.getinfo(exepath, startpath)
             time.sleep(15)
             sys.exit()
         # If the user does not want to schedule the program to run at a later date but want to do
