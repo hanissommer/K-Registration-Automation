@@ -97,4 +97,4 @@ if __name__ == '__main__':
             # Stores the path of the Chromedriver
             path = pathfind
             # Calls the 'register' function which will use the usernameinput and passwordinput to run
-            registration.register()
+            registration.register(path, usernameinput, passwordinput)

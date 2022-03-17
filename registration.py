@@ -8,9 +8,9 @@ from selenium.webdriver.support import expected_conditions as EC
 import main
 
 
-def register():
+def register(pathway, kid, kpassword):
     # A variable to get the chrome driver
-    driver = webdriver.Chrome(main.path)
+    driver = webdriver.Chrome(pathway)
     # The driver then opens the website to register on (Hornet HQ)
     driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
     # Wait 5 seconds -- for the page to load
@@ -18,7 +18,7 @@ def register():
     # Finds the username element on the webpage -- which should be a textfield
     username = driver.find_element_by_id("UserName")
     # Fills the textfield with the username entered by the user
-    username.send_keys(main.usernameinput, Keys.TAB)
+    username.send_keys(kid, Keys.TAB)
     # Wait 3 seconds
     time.sleep(3)
     # Finds the username element on the webpage -- which should be a textfield
@@ -26,7 +26,7 @@ def register():
     # Fills the textfield with the password entered by the user
     # This built-in functions automatically hit the 'Enter' key afterwards
     # which advances to Hornet HQ's homepage
-    password.send_keys(main.passwordinput)
+    password.send_keys(kpassword)
     # Waits 3 seconds
     time.sleep(3)
     # password.send_keys(Keys.RETURN)
@@ -78,12 +78,12 @@ def register():
         try:
             # Waits 5 seconds and then checks if the register button is clickable
             # and if so, stores the element (button) 'register-button'
-            register = WebDriverWait(driver, 5).until(
+            registerbutton = WebDriverWait(driver, 5).until(
                 EC.element_to_be_clickable((By.ID, "register-button"))
             )
             # If the page loads completely and element is clickable, it will
             # be clicked which registers the user
-            register.click()
+            registerbutton.click()
             # Convert the boolean that checks if the user is already registered
             registered = True
             print("You have successfully registered!")
