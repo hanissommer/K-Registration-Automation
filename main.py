@@ -96,7 +96,5 @@ if __name__ == '__main__':
             passwordinput = input("Please type in your password: ")
             # Stores the path of the Chromedriver
             path = pathfind
-            print(path)
-            time.sleep(5)
             # Calls the 'register' function which will use the usernameinput and passwordinput to run
             registration.register(path, usernameinput, passwordinput)
