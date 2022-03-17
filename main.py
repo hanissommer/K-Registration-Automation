@@ -22,7 +22,7 @@ cwd = os.getcwd()
 # A place holder to find where in the path to stop and find the chrome driver
 end = "\K-Registration-Automation-master"
 # Putting the file path for the chromedriver together
-pathfind = (cwd[0:cwd.index(end)+len(end)]) + "\chromedriver.exe"
+pathfind = (cwd[0:cwd.index(end)+len(end)+len(end)]) + "\chromedriver.exe"
 
 
 path = ''
