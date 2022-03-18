@@ -3,12 +3,11 @@ import time
 import win32com
 from win32com.client import Dispatch
 import registration
-import main
 from datetime import datetime, timedelta
 
 
 # THIS FUNCTION CREATES A TIMER BEFORE WHICH THE PROGRAM WILL RUN
-def timer(path, username1, password1, month, day, hour, minute):
+def timer(username1, password1, month, day, hour, minute):
     x = datetime.today()
     y = x.replace(month=int(month), day=int(day), hour=int(hour),
                   minute=int(minute)) - timedelta(minutes=1)
@@ -18,7 +17,8 @@ def timer(path, username1, password1, month, day, hour, minute):
     print("Number of minutes before the program starts running: " + str(secs/60))
 
     time.sleep(secs)
-    registration.register(path, username1, password1)
+    registration.register(username1, password1)
+
 
 def getinfo(epath, spath):
     # Creates and stores the path to where the shortcut to the program's executable

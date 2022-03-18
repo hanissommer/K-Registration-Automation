@@ -4,12 +4,14 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import main
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 
-def register(pathway, kid, kpassword):
+def register(kid, kpassword):
+    service = Service(executable_path=ChromeDriverManager().install())
     # A variable to get the chrome driver
-    driver = webdriver.Chrome(pathway)
+    driver = webdriver.Chrome(service=service)
     # The driver then opens the website to register on (Hornet HQ)
     driver.get("https://hornethq.kzoo.edu/Student/Account/Login")
     # Wait 5 seconds -- for the page to load

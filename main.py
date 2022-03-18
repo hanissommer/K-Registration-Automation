@@ -5,26 +5,9 @@ from datetime import date
 import registration
 import schedule
 
-usernameinput = ''
-passwordinput = ''
-mmonth = ''
-mday = ''
-mhour = ''
-mminute = ''
-datee = ''
-
-
 # Find the path to where the program is from on the user's machine
 cwd = os.getcwd()
 exepath = cwd + "\main.exe"
-
-# THIS SECTION BELOW IS TO FIND THE PATH OF THE CHROME DRIVER
-
-# A place holder to find where in the path to stop and find the chrome driver
-end = "\K-Registration-Automation-master"
-# Putting the file path for the chromedriver together
-pathfind = (cwd[0:cwd.index(end)+len(end)+len(end)]) + "\chromedriver.exe"
-path = ''
 
 
 # THIS SECTION IS TO FIND THE PATH TO WHERE THE SHORTCUT TO THE EXE OF THE PROGRAM WILL BE
@@ -39,7 +22,6 @@ startpath = (cwd[0:cwd.index(end1)]) + "\AppData\Roaming\Microsoft\Windows\Start
 
 if __name__ == '__main__':
     # Initializes the 'path' to be that which was determined at the top
-    path = pathfind
     # Stores the path of the executable file for the program
     #exepath = cwd + "\main.exe"
     print("Hello there, just checking to see if it is time to register and/or everything is in place...")
@@ -71,7 +53,7 @@ if __name__ == '__main__':
             mday = g1.readline()
             mhour = g1.readline()
             mminute = g1.readline()
-            schedule.timer(path, usernameinput, passwordinput, mmonth, mday, mhour, mminute)
+            schedule.timer(usernameinput, passwordinput, mmonth, mday, mhour, mminute)
         # If the dates are not the same it means that it is not the day to register,
         # and the program will close
         else:
@@ -97,6 +79,5 @@ if __name__ == '__main__':
             usernameinput = input("Please type in your K ID: ")
             passwordinput = input("Please type in your password: ")
             # Stores the path of the Chromedriver
-            path = pathfind
             # Calls the 'register' function which will use the usernameinput and passwordinput to run
-            registration.register(path, usernameinput, passwordinput)
+            registration.register(usernameinput, passwordinput)
