@@ -1,11 +1,11 @@
 # K Registration Automation
-Note: The program will ony run on a Chrome browser and will only work on Windows OS. 
+Note: The program will ony run on a Chrome browser (Version 99.0.4844.74) and will only work on Windows OS. If your chrome version is different, go to https://chromedriver.chromium.org/downloads to get the chrome driver version that works for you and replace the one is this project's files.
 
 > To start, click the 'Code' button, select 'Download ZIP' , and chose your downloads folder as the download path
 
 > Unzip the folder and paste the unzipped folder in the same 'Downloads' folder/path.
 
-> Navigate: >K-Registration-Automation-master>dist>main>main.exe
+> Navigate: >K-Registration-Automation-master>dist>main.exe
 
 > You will need to agree to run this program anyway or bypass your computer's virus defense as this is not a program from a recognized publisher.
 
