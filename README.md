@@ -5,7 +5,7 @@ Note: The program will ony run on a Chrome browser and will only work on Windows
 
 > Unzip the folder and paste the unzipped folder in the same 'Downloads' folder/path.
 
-> Navigate: >K-Registration-Automation-master>dist>main>main.exe
+> Navigate: >K-Registration-Automation-master>dist>main.exe
 
 > You will need to agree to run this program anyway or bypass your computer's virus defense as this is not a program from a recognized publisher.
 
