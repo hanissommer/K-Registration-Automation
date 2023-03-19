@@ -1,5 +1,5 @@
 # K Registration Automation
-Note: The program will ony run on a Chrome browser.
+Note: The program will ony run on a Windows OS with a Chrome browser.
 
 - Go to Releases, select v1, and download the asset 'RegisterMe.exe'
 
