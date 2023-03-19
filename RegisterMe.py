@@ -27,7 +27,7 @@ startpath = os.path.join(os.environ['APPDATA'], r'Microsoft\Windows\Start Menu\P
 
 
 def readyToRun():
-    with open('data.json', 'r') as f:
+    with open('dataToRegister.json', 'r') as f:
         userData = json.load(f)
     
     # Get the current year
@@ -46,7 +46,7 @@ def readyToRun():
 
 
 def yes_Run():
-    with open('data.json', 'r') as f:
+    with open('dataToRegister.json', 'r') as f:
         userData = json.load(f)
     
     print("Yes, it is...")
@@ -62,11 +62,11 @@ def yes_Run():
 
 
 # Main window/form layout construction
-file_exists = os.path.exists('data.json')
+file_exists = os.path.exists('dataToRegister.json')
 # If the json exists then the program has all the necessary info it needs to run
 runMe = False
 if (file_exists):
-    with open('data.json', 'r') as f:
+    with open('dataToRegister.json', 'r') as f:
             userData = json.load(f)
     
     #If the program is ready to run, then run it
@@ -78,7 +78,7 @@ if (file_exists):
         [sg.Text('Password:')], [sg.InputText(default_text=str(userData["password"]), size=(60, 1))],
 
         [sg.Text('You will be registered today' + ' at: ' + str(userData["hour"]) + ':' + str(userData["minute"]))], 
-        [sg.Text('You have to wait: ' + timeToShow + ' more hours to register.')],
+        [sg.Text('You have to wait: ' + timeToShow + ' more hour(s) to register.')],
         [sg.Button('Register Now')],
         ]
 
@@ -102,7 +102,7 @@ if (file_exists):
         [sg.Text('Minute:')], [sg.InputText(default_text=str(userData["minute"]), size=(60, 3))],
 
         [sg.Text('You are all set, however it is not your turn to register yet.')], 
-        [sg.Text('You have to wait: ' + timeToShow + ' more hours to register.')],
+        [sg.Text('You have to wait: ' + timeToShow + ' more hour(s) to register.')],
         [sg.Button('Submit')],
         ]
 
@@ -169,7 +169,7 @@ while True:
         }
 
         # Write the dictionary to a JSON file
-        with open("data.json", "w") as f:
+        with open("dataToRegister.json", "w") as f:
             json.dump(data, f)
 
         schedule.setupShortcut(exepath, startpath)
