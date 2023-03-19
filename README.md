@@ -1,7 +1,7 @@
 # K Registration Automation
 Note: The program will ony run on a Windows OS with a Chrome browser.
 
-- Go to Releases, select v1, and download the asset 'RegisterMe.exe'
+- Go to Releases, select Registration Automation, and download the asset 'Kzoo-Registration.exe'
 
 
 > You may need to agree to 'run this program anyway' or bypass your computer's virus defense as this is not a program from a recognized publisher.
