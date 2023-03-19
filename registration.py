@@ -7,8 +7,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 
+global driver
 
 def register(kid, kpassword):
+    global driver
     service = Service(executable_path=ChromeDriverManager().install())
     # A variable to get the chrome driver
     driver = webdriver.Chrome(service=service)

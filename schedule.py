@@ -5,6 +5,10 @@ from win32com.client import Dispatch
 import registration
 from datetime import datetime, timedelta
 
+# import os
+import json
+# import win32com.client
+
 
 # THIS FUNCTION CREATES A TIMER BEFORE WHICH THE PROGRAM WILL RUN
 def timer(username1, password1, month, day, hour, minute):
@@ -19,8 +23,16 @@ def timer(username1, password1, month, day, hour, minute):
     time.sleep(secs)
     registration.register(username1, password1)
 
+def timer2(month, day, hour, minute):
+    x = datetime.today()
+    y = x.replace(month=int(month), day=int(day), hour=int(hour),
+                  minute=int(minute)) - timedelta(minutes=1)
+    delta_t = y - x
 
-def getinfo(epath, spath):
+    mins = delta_t.total_seconds()/60
+    return str(mins/60)
+
+def setupShortcut(epath, spath):
     # Creates and stores the path to where the shortcut to the program's executable
     # will be stored -- in the user's pc's startup folder
     shrotcutpath = spath + "\startmainexe.lnk"
@@ -36,34 +48,47 @@ def getinfo(epath, spath):
     shortcut.WindowStyle = 1
     shortcut.save()
 
-    # Asks the user for information that the program will need to run at a later date
-    usernameinput = input("Please type in your K ID: ")
-    passwordinput = input("Please type in your password: ")
-    datee = input("Enter date to run in yyyy-mm-dd format: ")
-    mmonth = input("Enter month of registration (E.g: 1): ")
-    mday = input("Enter day of registration (E.g: 23): ")
-    mhour = input("Enter hour of registration (E.g: 17)[Use military time]: ")
-    mminute = input("Enter minute of registration (E.g: 45): ")
+# def getinfo(epath, spath):
+#     # Creates and stores the path to where the shortcut to the program's executable
+#     # will be stored -- in the user's pc's startup folder
+#     shrotcutpath = spath + "\startmainexe.lnk"
+#     # Stores the path to the program's executable
+#     target = epath
 
-    # Creates and write to text files with each information asked for from the user
+#     # Creates and store the shortcut in the previously determined location on the user's pc
+#     shell = win32com.client.Dispatch('WScript.Shell')
+#     shortcut = shell.CreateShortCut(shrotcutpath)
+#     shortcut.Targetpath = target
+#     cwd = os.getcwd()
+#     shortcut.WorkingDirectory = cwd
+#     shortcut.WindowStyle = 1
+#     shortcut.save()
 
-    # User's email
-    f = open("logininfoe.txt", "w")
-    f.write(usernameinput + "\n")
-    # User's password
-    f1 = open("logininfop.txt", "w")
-    f1.write(passwordinput + "\n")
-    # User's date of registration
-    g = open("dateinfo.txt", "w")
-    g.write(datee)
-    # User's time of registration (The date is a redundancy here)
-    g1 = open("timeinfo.txt", "w")
-    g1.write(mmonth + "\n")
-    g1.write(mday + "\n")
-    g1.write(mhour + "\n")
-    g1.write(mminute + "\n")
+#     # Asks the user for information that the program will need to run at a later date
+#     usernameinput = input("Please type in your K ID: ")
+#     passwordinput = input("Please type in your password: ")
+#     datee = input("Enter date to run in yyyy-mm-dd format: ")
+#     mmonth = input("Enter month of registration (E.g: 1): ")
+#     mday = input("Enter day of registration (E.g: 23): ")
+#     mhour = input("Enter hour of registration (E.g: 17)[Use military time]: ")
+#     mminute = input("Enter minute of registration (E.g: 45): ")
 
-    # Tells the user that the program has everything it needs to run on the date of registration
-    # then closes after 15 seconds
-    print("You are all set! The program will start running two minutes before your registration "
-          "time - just make sure to have your pc booted up on the day")
+#     # Creates a dictionary with the user's information
+#     data = {
+#         "username": usernameinput,
+#         "password": passwordinput,
+#         "date": datee,
+#         "month": mmonth,
+#         "day": mday,
+#         "hour": mhour,
+#         "minute": mminute
+#     }
+
+#     # Write the dictionary to a JSON file
+#     with open("data.json", "w") as f:
+#         json.dump(data, f)
+
+#     # Tells the user that the program has everything it needs to run on the date of registration
+#     # then closes after 15 seconds
+#     print("You are all set! The program will start running two minutes before your registration "
+#           "time - just make sure to have your pc booted up on the day")
