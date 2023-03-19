@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.service import Service
 
 global driver
 
+# This function will register the user on Hornet HQ
 def register(kid, kpassword):
     global driver
     service = Service(executable_path=ChromeDriverManager().install())

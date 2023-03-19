@@ -4,8 +4,7 @@ import win32com
 from win32com.client import Dispatch
 import registration
 from datetime import datetime, timedelta
-import json
-# import win32com.client
+
 
 
 # THIS FUNCTION CREATES A TIMER BEFORE WHICH THE PROGRAM WILL RUN
@@ -25,6 +24,8 @@ def timer(username1, password1, month, day, hour, minute):
         time.sleep(secs)
         registration.register(username1, password1)
 
+
+# THIS FUNCTION RETURNS THE NUMBER OF HOURS LEFT
 def timer2(month, day, hour, minute):
     x = datetime.today()
     y = x.replace(month=int(month), day=int(day), hour=int(hour),
@@ -34,6 +35,7 @@ def timer2(month, day, hour, minute):
     mins = delta_t.total_seconds()/60
     return str(mins/60)
 
+# THIS FUNCTION CREATES A SHORTCUT TO THE PROGRAM IN THE STARTUP FOLDER
 def setupShortcut(epath, spath):
 
     # Path to the executable file

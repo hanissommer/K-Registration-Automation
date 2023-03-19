@@ -49,7 +49,6 @@ def yes_Run():
     with open('dataToRegister.json', 'r') as f:
         userData = json.load(f)
     
-    print("Yes, it is...")
     usernameinput = userData["username"]
     passwordinput = userData["password"]
     mmonth = userData["month"]
@@ -139,7 +138,6 @@ while True:
 
         # Start the thread, which will run the function in the background
         t.start()
-        # yes_Run()
 
     event, values = form.read()
     
@@ -173,12 +171,23 @@ while True:
             json.dump(data, f)
 
         schedule.setupShortcut(exepath, startpath)
+        if(readyToRun()):
+            # Create a new thread
+            t = threading.Thread(target=yes_Run)
+
+            # Start the thread, which will run the function in the background
+            t.start()
             
         form.close()
     elif event == 'Submit' and values[1]:
         usernameinput = values[2]
         passwordinput = values[3]
-        registration.register(usernameinput, passwordinput)
+        # Create a new thread
+        t = threading.Thread(target=registration.register(usernameinput, passwordinput))
+
+        # Start the thread, which will run the function in the background
+        t.start()
+        
             
         form.close()
 form.close()
