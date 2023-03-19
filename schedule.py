@@ -4,7 +4,6 @@ import win32com
 from win32com.client import Dispatch
 import registration
 from datetime import datetime, timedelta
-
 # import os
 import json
 # import win32com.client
@@ -19,9 +18,13 @@ def timer(username1, password1, month, day, hour, minute):
 
     secs = delta_t.total_seconds()
     print("Number of minutes before the program starts running: " + str(secs/60))
-
-    time.sleep(secs)
-    registration.register(username1, password1)
+    if secs <= 0:
+        print("The program will start running now")
+        registration.register(username1, password1)
+    else:
+        print("The program will start running in " + str(secs/60) + " minutes")
+        time.sleep(secs)
+        registration.register(username1, password1)
 
 def timer2(month, day, hour, minute):
     x = datetime.today()
@@ -33,20 +36,30 @@ def timer2(month, day, hour, minute):
     return str(mins/60)
 
 def setupShortcut(epath, spath):
-    # Creates and stores the path to where the shortcut to the program's executable
-    # will be stored -- in the user's pc's startup folder
-    shrotcutpath = spath + "\startmainexe.lnk"
-    # Stores the path to the program's executable
-    target = epath
 
-    # Creates and store the shortcut in the previously determined location on the user's pc
-    shell = win32com.client.Dispatch('WScript.Shell')
-    shortcut = shell.CreateShortCut(shrotcutpath)
-    shortcut.Targetpath = target
-    cwd = os.getcwd()
-    shortcut.WorkingDirectory = cwd
-    shortcut.WindowStyle = 1
+    # Path to the executable file
+    executable_path = epath
+
+    # Create a shell object
+    shell = win32com.client.Dispatch("WScript.Shell")
+
+    # Get the path to the Start Up folder
+    startup_folder = shell.SpecialFolders("Startup")
+
+    # Create a shortcut object
+    shortcut = shell.CreateShortCut(os.path.join(startup_folder, "Kregister.lnk"))
+
+    # Set the path and arguments for the executable
+    shortcut.Targetpath = executable_path
+    shortcut.Arguments = ""
+
+    # Set the working directory for the shortcut
+    shortcut.WorkingDirectory = os.path.dirname(executable_path)
+
+    # Save the shortcut to the Start Up folder
     shortcut.save()
+
+
 
 # def getinfo(epath, spath):
 #     # Creates and stores the path to where the shortcut to the program's executable

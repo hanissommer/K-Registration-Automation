@@ -1,6 +1,7 @@
 import datetime
 import os
 import sys
+import threading
 import time
 from datetime import date
 import registration
@@ -43,6 +44,7 @@ def readyToRun():
     if registrationdate == str(date.today()):
         return True
 
+
 def yes_Run():
     with open('data.json', 'r') as f:
         userData = json.load(f)
@@ -77,6 +79,7 @@ if (file_exists):
 
         [sg.Text('You will be registered today' + ' at: ' + str(userData["hour"]) + ':' + str(userData["minute"]))], 
         [sg.Text('You have to wait: ' + timeToShow + ' more hours to register.')],
+        [sg.Button('Register Now')],
         ]
 
         layout = [
@@ -100,7 +103,7 @@ if (file_exists):
 
         [sg.Text('You are all set, however it is not your turn to register yet.')], 
         [sg.Text('You have to wait: ' + timeToShow + ' more hours to register.')],
-
+        [sg.Button('Submit')],
         ]
 
         layout = [
@@ -130,17 +133,23 @@ else:
 
 # Main window/form event loop
 while True:
+    if runMe == True:
+        # Create a new thread
+        t = threading.Thread(target=yes_Run)
+
+        # Start the thread, which will run the function in the background
+        t.start()
+        # yes_Run()
+
     event, values = form.read()
     
-    if runMe == True:
-        yes_Run()
 
     if event in (sg.WIN_CLOSED, 'Cancel'):
         break
 
-    if event == 'Okay':
+    if event == 'Register Now':
+        registration.register(userData["username"], userData["password"])
         form.close()
-        break
 
     if event == 'Submit' and values[0]:
         usernameinput = values[2]
